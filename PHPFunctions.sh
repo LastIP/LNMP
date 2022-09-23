@@ -69,6 +69,7 @@ initRocky8PHP8 () {
 yum install -y epel-release gcc gcc-c++ libxml2 libxml2-devel openssl openssl-devel sqlite-devel libcurl-devel autoconf automake libtool libxml2-devel
 dnf --enablerepo=powertools install oniguruma-devel -y
 
+
 #wget http://192.168.1.3/data/file/Linux/php-8.1.10.tar.gz && tar -zxvf php-8.1.10.tar.gz && cd php-8.1.10
 wget https://www.php.net/distributions/php-8.1.10.tar.gz && tar -zxvf php-8.1.10.tar.gz && cd php-8.1.10
 ./configure --prefix=/usr/local/php --with-openssl --enable-zip --with-zlib --disable-fileinfo --with-fpm-user=www --with-fpm-group=www --with-curl \
@@ -110,8 +111,9 @@ if [[ $(cat /etc/os-release | grep -n "Linux Mint 21") != "" ]];then
 	initMint21PHP8;
 
 ### CentOS 7
-elif [[ $(cat /etc/os-release | grep -n "Rocky Linux 8") != "" ]];then
+elif [[ $(cat /etc/os-release | grep -n "Rocky Linux 8") != "" || $(cat /etc/os-release | grep -n "Rocky Linux 9") != "" ]];then
 	initRocky8PHP8;
+	#echo 9;
 
 ### Mint 21
 elif [[ $(cat /etc/os-release | grep -n "CentOS Linux 7") != "" ]];then        

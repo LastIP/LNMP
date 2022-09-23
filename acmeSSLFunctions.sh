@@ -18,8 +18,9 @@ if [[ ! -d "~/.acme.sh" ]]; then
 	curl https://get.acme.sh | sh -s email=my@example.com
 
 	### CF DNS API
-	Token='AAAA'
-	Account_ID='BBBB'
+	Token="AAA"
+	Account_ID="BBB"
+
 	sed -i "s/#CF_Token=\"xxxx\"/CF_Token='$Token'/g" ~/.acme.sh/dnsapi/dns_cf.sh
 	sed -i "s/#CF_Account_ID=\"xxxx\"/CF_Account_ID='$Account_ID'/g" ~/.acme.sh/dnsapi/dns_cf.sh
 fi
@@ -29,7 +30,8 @@ if [[ ! -d "~/.acme.sh/$rootUrl" ]]; then
 	#statements
 
 
-	### 
+	### https://dv.acme-v02.test-api.pki.goog/directory
+	### https://acme-v02.api.letsencrypt.org/directory
 	#~/.acme.sh/acme.sh --issue --server https://acme-v02.api.letsencrypt.org/directory --dns dns_cf -d $rootUrl -d "*.$rootUrl"
 	~/.acme.sh/acme.sh --issue --dns dns_cf -d $rootUrl -d "*.$rootUrl"
 
