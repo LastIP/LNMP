@@ -106,16 +106,16 @@ installPHP
 ######### 总运行 PHP 安装程序  #########
 PHP () {
 
-
+### Mint 21 OK
 if [[ $(cat /etc/os-release | grep -n "Linux Mint 21") != "" ]];then
 	initMint21PHP8;
 
-### CentOS 7
+### Rocky 8 OK
 elif [[ $(cat /etc/os-release | grep -n "Rocky Linux 8") != "" || $(cat /etc/os-release | grep -n "Rocky Linux 9") != "" ]];then
 	initRocky8PHP8;
 	#echo 9;
 
-### Mint 21
+### CentOS 7 OK
 elif [[ $(cat /etc/os-release | grep -n "CentOS Linux 7") != "" ]];then        
 	initCentOS7PHP74;
 
